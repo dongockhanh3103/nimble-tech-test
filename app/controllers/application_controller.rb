@@ -1,12 +1,11 @@
 class ApplicationController < ActionController::Base
-  # before_action :authorize
+  before_action :authorize
 
   def current_user
     unless defined?(@current_user)
       @current_user = login_from_session || nil
     end
     @current_user
-    User.find_by_email('dongockhanh3103@gmail.com')
   end
 
   def current_user=(user)
