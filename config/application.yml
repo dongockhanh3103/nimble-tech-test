@@ -1,0 +1,18 @@
+default: &default
+  # hostname: https://a39f0991e35f.ngrok.io
+  hostname: localhost:3000
+  google:
+    api_key: AIzaSyAr9Dvd0op03JZKb97lKVfKAuNMGbsACts
+    custom_search_url: https://www.googleapis.com/customsearch/v1
+    search_context: 002960772497613476450:dzzhp8nbej0
+    client_id: 337263964389-v4nh61u254r1354088m63iuhbh7g1io4.apps.googleusercontent.com
+    client_secret: wy2TqriBHSv9XHoml_WO3aoA
+  s3_asset:
+    access_key_id: AKIAXLOJR5MF7UXQAOEX
+    secret_access_key: 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
+    hostname: nimble-test-user-reports
+    region:   us-east-2
+    endpoint: https://s3.us-east-2.amazonaws.com/
+    url: https://s3.us-east-2.amazonaws.com/nimble-test-user-reports
+development:
+  <<: *default

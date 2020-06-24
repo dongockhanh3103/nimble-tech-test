@@ -1,0 +1,1 @@
+Typhoeus::Config.user_agent = 'Nimble Tech Test'
