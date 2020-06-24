@@ -1,6 +1,3 @@
-# README
-
-* ...
 # nimble-tech-test
 
 # Authentication
