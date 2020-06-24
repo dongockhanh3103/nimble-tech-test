@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get "/auth/signin", to: "session#new", as: :signin
   get "/auth/signout", to: "session#destroy", as: :signout
   get "/auth/:provider/callback", to: "session#create"
-  get "/reports", to: "reports#index"
   resources :files, only: [] do
     collection do
       get 'report'
