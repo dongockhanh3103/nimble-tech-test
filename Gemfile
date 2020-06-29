@@ -27,12 +27,15 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-# gem 'google-api-client', '~> 0.34'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'typhoeus'
 gem 'settingslogic'
 gem 'carrierwave-aws'
+gem 'redis'
+gem 'redis-rails'
+gem 'sidekiq'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,6 +49,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rspec-rails'
 end
 
 group :test do
@@ -54,6 +58,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rspec-rails'
+  gem 'rspec-sidekiq'
+  gem 'factory_bot_rails'
+  gem 'fakeredis', require: 'fakeredis/rspec'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

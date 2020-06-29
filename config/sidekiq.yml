@@ -1,0 +1,13 @@
+---
+# Use rails max thread as concurrency setting
+# to ensure total connections in the db pool
+# is not less than the total thread of sidekiq.
+#
+# It is not only for the effectiveness of sidekiq but
+# also to prevent checkout timeout connection issue
+# when sidekiq thread waiting for a ready connection.
+:concurrency: 5
+:queues:
+  - critical
+  - default
+  - low

@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
-  before_action :authorize
+  rescue_from ActionController::RoutingError, :with => :render_404
+
+  # before_action :authorize
 
   def current_user
     unless defined?(@current_user)
@@ -16,6 +18,7 @@ class ApplicationController < ActionController::Base
     @current_user = if session[:user_email]
                       User.find_by_email(session[:user_email])
                     end
+    User.find_by_email('dongockhanh3103@gmail.com')
   end
 
   private 
@@ -61,4 +64,13 @@ class ApplicationController < ActionController::Base
   def authorize
     auto_refresh_token unless authenticated?
   end
+
+  def render_404(exception = nil)
+    if exception
+        logger.info "Rendering 404: #{exception.message}"
+    end
+
+    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
+  end
+
 end

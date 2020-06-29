@@ -1,0 +1,29 @@
+
+<%= form_tag(attachments_upload_path, :action=>'upload', multipart: true) do %>
+  <% if @errors.present? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@errors.count, "error") %> prohibited this import from completing:</h2>
+      <ul>
+      <% @errors.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= file_field_tag :file %>
+  <%= submit_tag( "Import", id: 'btn-submit' ) %>
+  <%= link_to "Generate Reports", reports_path, class: "button" %>
+<% end %>
+<%= link_to "Sign out of session...", signout_path, class: "btn btn-primary" %>
+<div class='loader'> </div>
+
+<% if @reports.present? %>
+  <div class="reports">
+    <h3><%= pluralize(@reports.size, "report") %> here:</h3>
+    <ul>
+      <% @reports.each do |report| %>
+        <li><a href='<%= report.url %>' target='_blank'><%= report.url %></a></li>
+      <% end %>
+     </ul>
+  </div>
+<% end %>

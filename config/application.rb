@@ -11,6 +11,7 @@ module Nimble
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.exceptions_app = self.routes
+    config.middleware.use ActionDispatch::Flash
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -20,9 +21,12 @@ module Nimble
     config.autoload_paths += [
       "#{app}/utilities",
       "#{app}/params",
+      "#{app}/tasks",
+      "#{app}/presenters",
+      "#{app}/operations",
       "#{Rails.root}/lib"
     ]
 
-    config.hosts << "8251d546f0e0.ngrok.io"
+    # config.hosts << "8251d546f0e0.ngrok.io"
   end
 end

@@ -1,9 +1,9 @@
 module SearchResultOperation
   class CreateSearchResult < BaseOperation
-    def initialize(keyword:, result:, user:)
+    def initialize(keyword:, result:, user_id:)
       @keyword = keyword
       @result = result
-      @user = user
+      @user_id = user_id
     end
 
     def execute
@@ -14,10 +14,10 @@ module SearchResultOperation
         total_result: @result['totalResults'] || 0,
         html_content: @result['htmlContent'],
         search_time: @result['searchTime'],
-        user_id: @user.id || 1
+        user_id: @user_id
       )
 
-      result
+      [result]
     rescue StandardError => error
       p error
       nil
