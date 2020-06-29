@@ -5,7 +5,7 @@ module SearchResultOperation
     end
 
     def execute
-      SearchResult.where(user_id: @user_id).order(keyword: :desc)
+      SearchResult.where(user_id: @user_id).order(keyword: :asc)
     rescue StandardError => error
       p error
       nil

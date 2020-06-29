@@ -17,7 +17,7 @@ module SearchResultOperation
         user_id: @user_id
       )
 
-      [result]
+      result
     rescue StandardError => error
       p error
       nil
