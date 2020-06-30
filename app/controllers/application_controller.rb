@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
     @current_user = if session[:user_email]
                       User.find_by_email(session[:user_email])
                     end
-    User.find_by_email('dongockhanh3103@gmail.com')
   end
 
   private 
